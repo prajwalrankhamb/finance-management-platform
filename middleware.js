@@ -18,12 +18,9 @@ const aj = arcjet({
       mode: "LIVE",
     }),
     detectBot({
-      mode: "LIVE", // will block requests. Use "DRY_RUN" to log only
-      allow: [
-        "CATEGORY:SEARCH_ENGINE", // Google, Bing, etc
-        "GO_HTTP", // For Inngest
-      ],
-    }),
+      mode: "DRY_RUN", // logs instead of blocking
+      allow: ["CATEGORY:SEARCH_ENGINE", "GO_HTTP"],
+    })
   ],
 });
 
