@@ -120,7 +120,6 @@ export default function EmailTemplate({
   }
 
   if (type === "budget-alert") {
-  console.log("✅ budget-alert function invoked", new Date());
     return (
       <Html>
         <Head />
