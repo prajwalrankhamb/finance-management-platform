@@ -15,7 +15,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {statsData.map((statsData,index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">
+                <div className="text-4xl font-bold text-[#3E3F29] mb-2">
                   {statsData.value}
                 </div>
                 <div className="text-gray-600">{statsData.label}</div>
@@ -96,12 +96,12 @@ export default function Home() {
         </div>
       </section>
 
-       <section className="py-20 bg-blue-600">
+       <section className="py-20 bg-FCB53B">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
+          <h2 className="text-3xl font-bold text-black mb-4">
             Read To Take Control Of Your Finances?
           </h2>
-          <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-black mb-8 max-w-2xl mx-auto">
             Join thousands of users who are already managing their
             finances
             smarter with FinVerse
@@ -109,7 +109,7 @@ export default function Home() {
           <Link href="/dashboard">
           <Button 
             size="lg"
-            className="bg-white text-blue-600 hover:bg-blue-50 animate-bounce">
+            className="bg-white text-black hover:bg-blue-50 animate-bounce">
             Start Free Trial
           </Button>
             

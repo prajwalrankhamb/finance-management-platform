@@ -3,9 +3,8 @@
 import { auth } from "@clerk/nextjs/server";
 import { db } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenerativeAI } from "@google/generative-ai";import aj from "@/lib/arcjet";
 import { request } from "@arcjet/next";
-import aj from "@/lib/arcjet";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
@@ -230,7 +229,9 @@ export async function getUserTransactions(query = {}) {
 // Scan Receipt
 export async function scanReceipt(file) {
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({
+      model: "gemini-2.5-flash",
+    });
 
     // Convert File to ArrayBuffer
     const arrayBuffer = await file.arrayBuffer();
@@ -267,7 +268,8 @@ export async function scanReceipt(file) {
       prompt,
     ]);
 
-    const response = await result.response;
+    // const response = await result.response;
+    const response = result.response;
     const text = response.text();
     const cleanedText = text.replace(/```(?:json)?\n?/g, "").trim();
 
@@ -311,4 +313,3 @@ function calculateNextRecurringDate(startDate, interval) {
 
   return date;
 }
-

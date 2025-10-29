@@ -4,8 +4,10 @@ import { getTransaction } from "@/action/transaction";
 import { AddTransactionForm } from "../_components/transaction-form";
 
 export default async function AddTransactionPage({ searchParams }) {
+  const params = await searchParams;
   const accounts = await getUserAccounts();
-  const editId = searchParams?.edit;
+  const editId = params?.edit;
+
 
   let initialData = null;
   if (editId) {
